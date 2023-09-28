@@ -5,18 +5,79 @@ var lowerCase = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p"
 
 var numbers = ["0","1","2","3","4","5","6","7","8","9"]
 
-var specChar = ["!","#","$","%","^","&","*","(",")","~","+"]
+var specialCharacter = ["!","#","$","%","^","&","*","(",")","~","+"]
 
-var numChar = []
+var numChar;
+
+var charList = []
+
+var letsStart = function() {
+  var newUser = window.confirm("Hello! Thank you for coming to the password generator. Please answer a few questions about the type of password you would like. To proceed, click OK."); 
+
+  if (newUser== true) {
+    numChar = window.prompt ("Please select the number of characters you would like for your password.", "Any whole number between 8 and 128");
+    console.log(numChar);
+   } else {
+     alert ("Thanks for stopping by.");
+   } 
+
+   if (numChar < 8) {
+    window.alert ("Please choose a number greater than 8"); 
+    letsStart();
+   } else if (numChar > 128) {
+    window.alert ("Please choose a number less than 128");
+    letsStart();
+  }
+   }
+letsStart();
+
+var characters = function () {
+  var capLet = window.confirm ("Would you like your password to have capital letters? Click OK for yes, Click Cancel for no.")
+  console.log(capLet)
+
+  var lowLet = window.confirm ("Would you like your password to have lowercase letters? Click OK for yes, Click Cancel for no.")
+
+  var number = window.confirm ("Would you like your password to have numbers? Click OK for yes, Click Cancel for no.")
+
+  var specChar = window.confirm ("Would you like your password to have special characters? Click OK for yes, Click Cancel for no")
+  console.log(capLet, lowLet, number, specChar)
+
+  if (capLet === true) {
+    charList.push(upperCase);
+  }
+
+  if (lowLet === true) {
+    charList.push(lowerCase);
+  }
+
+  if (number === true) {
+    charList.push(numbers);
+  }
+
+  if (specChar === true) {
+    charList.push(specialCharacter);
+  }
+  console.log (charList)
+}
+
+characters();
 
 
-var startGenerator = window.confirm("Hello! Thank you for coming to the password generator. Please answer a few questions about the type of password you would like. To proceed, click OK."); 
 
-if (startGenerator== true) {
-  window.prompt ("Please select the number of characters you would like for your password (8-128).")
-} else {
-  alert ("Thanks for stopping by.")
-}  //Initial greeting/intro. Can proceed (true) or leave (false)
+
+
+
+
+
+// function leroy(x, y){
+//   x = Math.sqrt(x)
+//   return x + y
+// }
+
+// const jenkins = leroy(5, 8)
+// console.log(jenkins)
+
+
 
 
 
@@ -37,13 +98,6 @@ function writePassword() {
 generateBtn.addEventListener("click", writePassword);
 
 // Start here
-
-Array.fill(number, number, 128)
-var charNum = []
-
-
-
-
 
 // var inclNums = window.confirm true/false
 
