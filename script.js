@@ -1,72 +1,60 @@
 // Assignment code here
 var upperCase = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
-
 var lowerCase = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
-
 var numbers = ["0","1","2","3","4","5","6","7","8","9"]
-
 var specialCharacter = ["!","#","$","%","^","&","*","(",")","~","+"]
-
-var numChar;
-
-var charList = []
-
+var numChar = [];
+var charList = [];
 var letsStart = function() {
-  var newUser = window.confirm("Hello! Thank you for coming to the password generator. Please answer a few questions about the type of password you would like. To proceed, click OK."); 
-
-  if (newUser== true) {
-    numChar = window.prompt ("Please select the number of characters you would like for your password.", "Any whole number between 8 and 128");
+  var newUser = window.confirm("Hello! Thank you for coming to the password generator. Please answer a few questions about the type of password you would like. To proceed, click OK.");
+  if (newUser) {
+    numChar = parseInt(window.prompt ("Please select the number of characters you would like for your password.", "Any whole number between 8 and 128"));
     console.log(numChar);
    } else {
      alert ("Thanks for stopping by.");
-   } 
-
-   if (numChar < 8) {
-    window.alert ("Please choose a number greater than 8"); 
-    letsStart();
-   } else if (numChar > 128) {
-    window.alert ("Please choose a number less than 128");
+   }
+   if (numChar < 8 || numChar > 128 || isNaN(numChar)) {
+    window.alert ("Please choose a whole number between 8 and 128.");
     letsStart();
   }
    }
+   
 letsStart();
 
 var characters = function () {
   var capLet = window.confirm ("Would you like your password to have capital letters? Click OK for yes, Click Cancel for no.")
-  console.log(capLet)
-
   var lowLet = window.confirm ("Would you like your password to have lowercase letters? Click OK for yes, Click Cancel for no.")
-
   var number = window.confirm ("Would you like your password to have numbers? Click OK for yes, Click Cancel for no.")
-
   var specChar = window.confirm ("Would you like your password to have special characters? Click OK for yes, Click Cancel for no")
   console.log(capLet, lowLet, number, specChar)
-
-  if (capLet === true) {
-    charList.push(upperCase);
+  if (capLet) {
+    charList.push(...upperCase); 
+  } 
+  if (lowLet) {
+    charList.push(...lowerCase);
+  } 
+  if (number) {
+    charList.push(...numbers);
+  } 
+  if (specChar) {
+    charList.push(...specialCharacter);
+  } 
+  console.log(charList);
   }
+  characters();
 
-  if (lowLet === true) {
-    charList.push(lowerCase);
+
+  function generatePassword() {
+    var password = ""
+    for(var i = 0; i < numChar; i++) {
+      var index = Math.floor(Math.random()*charList.length);
+      password += charList[index];
+    }
+    console.log(password);
+    return password;
   }
-
-  if (number === true) {
-    charList.push(numbers);
-  }
-
-  if (specChar === true) {
-    charList.push(specialCharacter);
-  }
-  console.log (charList)
-}
-
-characters();
-
-
-
-
-
-
+  var generated = generatePassword()
+  console.log("Generated Password" + generated)
 
 
 // function leroy(x, y){
@@ -114,9 +102,3 @@ generateBtn.addEventListener("click", writePassword);
   // turn array into string
 
   // return password;
-
-
-
-
-
-
