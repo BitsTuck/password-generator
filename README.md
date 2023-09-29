@@ -38,5 +38,3 @@ Additional guidance was given by instructor Leah Nelson and TAs Diana Vu and Die
 Please refer to the license in the repo.
 
 ---
-
-starter code: 
