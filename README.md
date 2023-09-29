@@ -5,6 +5,10 @@
 Version 1
 Deployed 29 September 2023
 
+<img width="1432" alt="Screenshot 2023-09-29 at 8 21 58 AM" src="https://github.com/BitsTuck/password-generator/assets/144712161/ddf651c9-061c-4c7d-a883-7914460c9040">
+
+https://bitstuck.github.io/password-generator/
+
 ## Description
 
 The Password Generator (mini project #3) focused on creating a password generator involving a specific set of characters (upper case letters, lower case letters, numbers, special characters). Users were allowed to select the length of their password (8-128 characters), and then the password was randomly generated based upon the character selections and requested password length.
